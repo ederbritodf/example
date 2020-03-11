@@ -1,7 +1,7 @@
  pipeline {
   environment {
-      registry = "172.18.0.7:8081"
-      dockerRegistry = "172.18.0.7:8081"
+      registry = "nexus"
+      dockerRegistry = "http://172.18.0.7:8081/repository/docker-group-eder/"
       registryCredential = 'admin'
       ImageName = "example"
       ImageTag= "01"
@@ -36,7 +36,7 @@ stages {
       stage('Deploy Image') {
         steps{
           script {
-              docker.withRegistry( 'http://$dockerRegistry/', 'docker-registry' ) {
+              docker.withRegistry( '$dockerRegistry', 'docker-registry' ) {
                   docker.build(ImageName)
                       .push(ImageTag)
             }
@@ -45,7 +45,10 @@ stages {
       }
       stage('Remove Unused docker image') {
         steps{
+         sh "echo removed"
+         /*
           sh "docker rmi $registry/$ImageName:$ImageTag"
+          */
         }
       }
     }
