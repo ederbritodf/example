@@ -43,13 +43,13 @@ stages {
           }
         }
       }
-      stage('Remove Unused docker image') {
+      /*stage('Remove Unused docker image') {
         steps{
          sh "echo removed"
-         /*
+         
           sh "docker rmi $registry/$ImageName:$ImageTag"
-          */
+          
         }
-      }
+      }*/
     }
   }
