@@ -33,7 +33,7 @@ stages {
       }
       stage('Clean Workspace') {
         steps{
-         sh "docker rmi $dockerRegistry/$ImageName:$ImageTag"
+         sh "docker rmi 172.18.0.7:5001/$ImageName:$ImageTag"
         }
       }
     }
