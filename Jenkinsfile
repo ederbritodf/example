@@ -24,20 +24,17 @@ stages {
       stage('Deploy Image Registry') {
         steps{
           script {
-              docker.withRegistry( $dockerRegistry, 'docker-registry' ) {
+              docker.withRegistry('http://172.18.0.7:5001' , 'docker-registry' ) {
                   docker.build(ImageName)
                       .push(ImageTag)
             }
           }
         }
       }
-      /*stage('Remove Unused docker image') {
+      stage('Clean Workspace') {
         steps{
-         sh "echo removed"
-         
-          sh "docker rmi $registry/$ImageName:$ImageTag"
-          
+         sh "docker rmi $dockerRegistry/$ImageName:$ImageTag"
         }
-      }*/
+      }
     }
   }
