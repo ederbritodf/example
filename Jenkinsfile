@@ -1,7 +1,7 @@
  pipeline {
   environment {
       registry = "nexus"
-      dockerRegistry = "http://172.18.0.7:5003"
+      dockerRegistry = "http://172.18.0.7:8081/repository/docker-group-eder/"
       registryCredential = 'admin'
       ImageName = "example"
       ImageTag= "01"
