@@ -24,7 +24,7 @@ stages {
       stage('Deploy Image') {
         steps{
           script {
-              docker.withRegistry( '172.18.0.7:5003', 'docker-registry' ) {
+              docker.withRegistry( 'http://172.18.0.7:5003', 'docker-registry' ) {
                   docker.build(ImageName)
                       .push(ImageTag)
             }
