@@ -1,7 +1,7 @@
  pipeline {
   environment {
       registry = "nexus"
-      dockerRegistry = "http://172.18.0.7:8081/repository/docker-group-eder/"
+      dockerRegistry = "172.18.0.7"
       registryCredential = 'admin'
       ImageName = "example"
       ImageTag= "01"
@@ -13,19 +13,7 @@
 
 agent any
 
-stages {
-  stage('Checkout Código-fonte') {
-      steps {
-        git([
-            poll: true,
-            credentialsId: gitCredential,
-            url: gitRepositoryUrl,
-            branch: gitBranch
-        ])
-
-    }
-  }
-  
+stages { 
       stage('Building image') {
         steps{
           script {
