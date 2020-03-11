@@ -1,7 +1,7 @@
  pipeline {
   environment {
       registry = "nexus"
-      dockerRegistry = "172.18.0.7"
+      dockerRegistry = "http://172.18.0.7:5003"
       registryCredential = 'admin'
       ImageName = "example"
       ImageTag= "01"
