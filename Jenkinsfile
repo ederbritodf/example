@@ -14,17 +14,17 @@
 agent any
 
 stages { 
-      stage('Building image') {
+      stage('Build Image') {
         steps{
           script {
             dockerImage = docker.build registry + "/$ImageName:$ImageTag"
           }
         }
       }
-      stage('Deploy Image') {
+      stage('Deploy Image Registry') {
         steps{
           script {
-              docker.withRegistry( '$dockerRegistry', 'docker-registry' ) {
+              docker.withRegistry( $dockerRegistry, 'docker-registry' ) {
                   docker.build(ImageName)
                       .push(ImageTag)
             }
