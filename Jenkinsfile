@@ -1,7 +1,7 @@
  pipeline {
   environment {
       registry = "nexus"
-      dockerRegistry = "172.18.0.7:5003/"
+      dockerRegistry = "http://172.18.0.7:5001"
       registryCredential = 'admin'
       ImageName = "example"
       ImageTag= "01"
@@ -24,7 +24,7 @@ stages {
       stage('Deploy Image') {
         steps{
           script {
-              docker.withRegistry( 'http://172.18.0.7:5001', 'docker-registry' ) {
+              docker.withRegistry( '$dockerRegistry', 'docker-registry' ) {
                   docker.build(ImageName)
                       .push(ImageTag)
             }
