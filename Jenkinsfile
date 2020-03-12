@@ -39,7 +39,7 @@ stages {
       stage('Start Docker') { 
         docker {
            image "$registry"/"$ImageName:$ImageTag"
-           args '-d -p 80:80 /usr/sbin/apache2ctl -D FOREGROUND'
+           args "-d -p 80:80 /usr/sbin/apache2ctl -D FOREGROUND"
     }
     }
   }
