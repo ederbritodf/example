@@ -36,7 +36,6 @@ stages {
          sh "docker rmi -f $registry/$ImageName:$ImageTag"
         }
       }
-  }
   
      stage('Run') {
        steps {
@@ -47,5 +46,5 @@ stages {
      }
    }
   
-  
+  } 
  }
