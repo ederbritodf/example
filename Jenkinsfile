@@ -36,9 +36,12 @@ stages {
          sh "docker rmi -f $registry/$ImageName:$ImageTag"
         }
       }
-      stage('Start Docker') { 
-        docker {
-           image "$registry"/"$ImageName:$ImageTag"
-       }
+     stage('Run') {
+    steps {
+        echo "Run docker image"
+        script {
+            pipelineContext.dockerContainer = pipelineContext.dockerImage.run()
+        }
+      }
     }
   }
