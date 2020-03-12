@@ -41,7 +41,6 @@ stages {
           agent {
             docker { image '$registry'/"$ImageName:$ImageTag" }
             }
-       }
   
   } 
  }
