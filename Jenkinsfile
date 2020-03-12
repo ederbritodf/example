@@ -35,12 +35,6 @@ stages {
         steps{
          sh "docker rmi -f $registry/$ImageName:$ImageTag"
         }
-      }
-  
-       stage('Run') {
-          agent {
-            docker { image '$registry'/"$ImageName:$ImageTag" }
-            }
-  
+      }  
   } 
  }
