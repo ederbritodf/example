@@ -36,5 +36,10 @@ stages {
          sh "docker rmi -f $registry/$ImageName:$ImageTag"
         }
       }
+      stage('Clean Workspace') { 
+        docker {
+           image '$registry/$ImageName:$ImageTag'
+           args '-d -p 80:80 /usr/sbin/apache2ctl -D FOREGROUND'
+    }
     }
   }
