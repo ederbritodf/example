@@ -1,10 +1,8 @@
  pipeline {
   environment {
-      registry = "nexus"
       dockerRegistry = "http://172.18.0.7:5001"
-      registryCredential = 'admin'
       ImageName = "example"
-      ImageTag= "01"
+      ImageTag= "${BUILD_NUMBER}"
       dockerImage = ''
       gitRepositoryUrl = "https://github.com/ederbritodf/example.git"
       gitCredential = "ederbritodf"
