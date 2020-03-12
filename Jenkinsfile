@@ -1,5 +1,6 @@
  pipeline {
   environment {
+      registry = "nexus"
       dockerRegistry = "http://172.18.0.7:5001"
       ImageName = "example"
       ImageTag= '${env.BUILD_ID}'
