@@ -2,7 +2,7 @@
   environment {
       dockerRegistry = "http://172.18.0.7:5001"
       ImageName = "example"
-      ImageTag= ${env.BUILD_ID}
+      ImageTag= '${env.BUILD_ID}'
       dockerImage = ''
       gitRepositoryUrl = "https://github.com/ederbritodf/example.git"
       gitCredential = "ederbritodf"
