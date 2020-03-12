@@ -37,13 +37,11 @@ stages {
         }
       }
   
-     stage('Run') {
-        steps{
-          script {
-            dockerImage = docker.run registry + "/$ImageName:$ImageTag"
-          }
-        }
-      }
+       stage('Run') {
+          agent {
+            docker { image '$registry'/"$ImageName:$ImageTag" }
+            }
+       }
   
   } 
  }
