@@ -39,7 +39,7 @@ stages {
  
       stage('Run App') {
         steps{
-         sh "docker run -d -p8087:80 $registry/$ImageName:$ImageTag"
+         sh "docker run -d -p8087:80 172.18.0.7:5001/$ImageName:$ImageTag"
         }
       }  
  
