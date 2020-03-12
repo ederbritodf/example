@@ -36,5 +36,12 @@ stages {
          sh "docker rmi -f $registry/$ImageName:$ImageTag"
         }
       }  
+ 
+      stage('Run App') {
+        steps{
+         sh "docker run -d -p8087:80 $registry/$ImageName:$ImageTag"
+        }
+      }  
+ 
   } 
  }
