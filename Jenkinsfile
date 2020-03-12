@@ -3,7 +3,7 @@
       registry = "nexusregistry"
       dockerRegistry = "http://172.18.0.7:5001"
       registryCredential = 'admin'   
-      ImageName = "example"
+      ImageName = "${env.JOB_NAME}"
       ImageTag= "${env.BUILD_NUMBER}"
       dockerImage = ''
       gitRepositoryUrl = "https://github.com/ederbritodf/example.git"
